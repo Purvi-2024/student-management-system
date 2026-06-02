@@ -1,4 +1,91 @@
-students = {}
+class Student:
+
+    def __init__(self, sid, name, course, marks):
+        self.sid = sid
+        self.name = name
+        self.course = course
+        self.marks = marks
+
+    def display(self):
+        print("\nStudent ID:", self.sid)
+        print("Name:", self.name)
+        print("Course:", self.course)
+        print("Marks:", self.marks)
+
+
+class StudentManagement:
+
+    def __init__(self):
+        self.students = {}
+
+    def add_student(self):
+
+        sid = int(input("Enter Student ID: "))
+
+        if sid in self.students:
+            print("Student ID already exists!")
+            return
+
+        name = input("Enter Student Name: ")
+        course = input("Enter Course: ")
+        marks = float(input("Enter Marks: "))
+
+        student = Student(sid, name, course, marks)
+
+        self.students[sid] = student
+
+        print("Student Added Successfully!")
+
+    def view_students(self):
+
+        if len(self.students) == 0:
+            print("No Students Found")
+            return
+
+        for student in self.students.values():
+            student.display()
+
+    def search_student(self):
+
+        sid = int(input("Enter Student ID: "))
+
+        if sid in self.students:
+            self.students[sid].display()
+        else:
+            print("Student Not Found")
+
+    def update_student(self):
+
+        sid = int(input("Enter Student ID: "))
+
+        if sid in self.students:
+
+            student = self.students[sid]
+
+            student.name = input("Enter New Name: ")
+            student.course = input("Enter New Course: ")
+            student.marks = float(input("Enter New Marks: "))
+
+            print("Student Updated Successfully!")
+
+        else:
+            print("Student Not Found")
+
+    def delete_student(self):
+
+        sid = int(input("Enter Student ID: "))
+
+        if sid in self.students:
+
+            del self.students[sid]
+
+            print("Student Deleted Successfully!")
+
+        else:
+            print("Student Not Found")
+
+
+sms = StudentManagement()
 
 while True:
 
@@ -13,73 +100,21 @@ while True:
     choice = input("Enter Choice: ")
 
     if choice == "1":
-        sid = int(input("Enter Student ID: "))
-        name = input("Enter Student Name: ")
-        course = input("Enter Course: ")
-        marks = float(input("Enter Marks: "))
-
-        students[sid] = {
-            "name": name,
-            "course": course,
-            "marks": marks
-        }
-
-        print("Student Added Successfully!")
+        sms.add_student()
 
     elif choice == "2":
-
-        if len(students) == 0:
-            print("No Students Found")
-
-        else:
-
-            for sid, details in students.items():
-
-                print("\nStudent ID:", sid)
-                print("Name:", details["name"])
-                print("Course:", details["course"])
-                print("Marks:", details["marks"])
+        sms.view_students()
 
     elif choice == "3":
-
-        sid = int(input("Enter Student ID: "))
-
-        if sid in students:
-            print(students[sid])
-
-        else:
-            print("Student Not Found")
+        sms.search_student()
 
     elif choice == "4":
-
-        sid = int(input("Enter Student ID: "))
-
-        if sid in students:
-
-            students[sid]["name"] = input("Enter New Name: ")
-            students[sid]["course"] = input("Enter New Course: ")
-            students[sid]["marks"] = float(input("Enter New Marks: "))
-
-            print("Student Updated Successfully!")
-
-        else:
-            print("Student Not Found")
+        sms.update_student()
 
     elif choice == "5":
-
-        sid = int(input("Enter Student ID: "))
-
-        if sid in students:
-
-            del students[sid]
-
-            print("Student Deleted Successfully!")
-
-        else:
-            print("Student Not Found")
+        sms.delete_student()
 
     elif choice == "6":
-
         print("Thank You!")
         break
 
