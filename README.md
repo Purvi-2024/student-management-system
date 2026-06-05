@@ -1,17 +1,30 @@
-# Student Management System 🧑‍🎓📘
+## Student Management System
 
-A simple console-based Student Management System built using Python.  
-This project helps manage student records such as adding, viewing, and deleting students.
+### Features Implemented
 
-## ✨ Features
-- Add new student
-- View all students
-- Search student by roll number
-- Delete student record
-- Exit system
+* Add Student
+* View Students
+* Search Student
+* Update Student
+* Delete Student
+* Grade Calculation
+* Total Students Counter
+* Average Marks using NumPy
+* Topper Finder
+* Exception Handling
 
-## 🛠 Tech Used
-- Python
+### Concepts Used
+
+* Python OOP
+* Classes & Objects
+* Constructors
+* Dictionaries
+* Functions
+* Exception Handling
+* NumPy
+
+This project is being continuously improved as part of my Python and AI/ML learning journey.
+
 
 ## 🎯 Purpose
 This mini project is created to practice Python concepts and improve logical thinking as a Computer Science Engineering student.
